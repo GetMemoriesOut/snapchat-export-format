@@ -1,0 +1,36 @@
+name: My export is different
+description: Something in your Snapchat export doesn't match FORMAT.md.
+labels: ["format"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Never paste your memories_history.json: it contains your GPS positions.** Each line gives the date, time and place of one Memory. This issue is public. Describe what you see in words, or with a made-up line.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: This issue contains no part of my memories_history.json, no screenshot of it and no Location value.
+          required: true
+  - type: input
+    id: received
+    attributes:
+      label: When did you receive your export?
+      placeholder: "March 2027"
+    validations:
+      required: true
+  - type: textarea
+    id: differs
+    attributes:
+      label: What is different?
+      description: Which part of FORMAT.md, and what you see instead. Replace identifiers in file names with XXXX.
+      placeholder: "FORMAT.md says the Date field ends in UTC. In mine it ends in Z, as in 2027-03-02T10:15:00Z."
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: A made-up example (optional)
+      description: Same shape as your file, with every date and number changed.
+      render: json
