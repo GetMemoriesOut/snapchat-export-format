@@ -33,6 +33,21 @@ Only in `memories_history.json`, in the `Location` field. Snapchat writes 0 for 
 **Why is one video split into several files?**
 Snapchat delivers long videos as clips of about 10 seconds, each in its own file. [FORMAT.md](FORMAT.md#videos-in-10-second-clips) lists what tells the clips of one video apart.
 
+## What to do with it
+
+Photos from the export have no capture date inside them, and captions sit in separate `-overlay.png` files. Three ways to deal with that:
+
+- A handful of photos: set the date by hand (Windows: Properties > Details; Mac Photos: Image > Adjust Date and Time). The time in `memories_history.json` is UTC.
+- Many photos: read `memories_history.json` and write each date into the matching file with ExifTool and a short script. Nothing in the export links a line of the JSON to a file name (see [FORMAT.md](FORMAT.md#what-links-a-line-to-a-file)), so you have to match them yourself.
+- All of it at once, in the browser, with nothing uploaded: [GetMemoriesOut](https://getmemoriesout.com/en) does the matching, puts captions back on photos and sorts by year and month. It is a paid tool: the recap and 500 files are free, the rest is one payment. We make it.
+
+## Guides on the same topic
+
+- [What is memories_history.json](https://getmemoriesout.com/en/guides/memories-history-json)
+- [Why photos lose their date](https://getmemoriesout.com/en/guides/memories-date-and-location)
+- [Missing or duplicated ZIP files](https://getmemoriesout.com/en/guides/missing-memories)
+- [Memories tools compared](https://getmemoriesout.com/en/guides/memories-tools-compared)
+
 ## Your export is private
 
 `memories_history.json` holds the date and the place of every Memory you saved. Don't paste it or attach it in an issue, a pull request or anywhere public. Issues on this repository are public.
